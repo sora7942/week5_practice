@@ -18,6 +18,8 @@ PROJECTS = [
     {'title':'캡스톤 팀원 모집', 'category':'web', 'description':'관심 분야와 기술에 맞는 팀원을 찾습니다.'},
     {'title':'실내 공기질 모니터', 'category':'iot', 'description':'센서로 교실의 온도와 공기질을 확인합니다.'},
     {'title':'분리배출 안내', 'category':'ai', 'description':'생활 폐기물의 분리배출 방법을 안내합니다.'},
+    {'title':'장비 대여 예약', 'category':'web', 'description':'학교의 실습 장비를 예약하고 대여 현황을 확인합니다.'},
+    {'title':'현장 참여형 실시간 퀴즈 플랫폼 - Q:ROUND', 'category':'web', 'description':'실시간으로 여러 사람들과 함께 퀴즈쇼를 진행할 수 있습니다.'},
 ]
 
 @app.get('/api/projects')
@@ -39,7 +41,7 @@ def analyze():
         return jsonify(error='소개글은 5,000자 이내로 입력하세요.'), 400
     # 공백과 줄바꿈도 글자 수에 포함합니다. 품질을 평가하는 기능은 아닙니다.
     return jsonify(characters=len(text), words=len(text.split()),
-                   minimum=100, maximum=300, within_range=100 <= len(text) <= 300)
+                   minimum=100, maximum=500, within_range=300 <= len(text) <= 500)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
